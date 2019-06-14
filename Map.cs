@@ -43,7 +43,6 @@ namespace console_game
             }
             catch (Exception)
             {
-
                 return null;
             }
             
@@ -107,7 +106,8 @@ namespace console_game
         public string direction()
         {
             int x = 0;
-            int y = 0; 
+            int y = 0;
+            int z = 0;
             string str = "";
             for (int i = 0; i < size; i++)
             {
@@ -116,11 +116,21 @@ namespace console_game
                     if (board[i,j]!=parent.board[i,j]&&board[i,j]>0)
                     {
                         x = board[i, j];
-                        y = i*size+ j;
+                        for (int n = 0; n < size; n++)
+                        {
+                            for (int m = 0; m < size; m++)
+                            {
+                                if (x==parent.board[n,m])
+                                {
+                                    y = n * size + m+1;
+                                }
+                            }
+                        }
+                        z = i*size+ j+ 1;
                     }
                 }
             }
-            str = x + ", " + y;
+            str = "Cell:" + x + " To:" + y + " From:" + z;
             return str;
         }
 

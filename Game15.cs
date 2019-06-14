@@ -166,6 +166,7 @@ namespace console_game
                         try
                         {
                             item.print();
+                            Console.WriteLine(item.direction());
                         }
                         catch 
                         {
@@ -176,7 +177,7 @@ namespace console_game
                     break;
 
                 }
-                if (x.getF() > 155)
+                if (x.getF() > 25)
                 {
                     Console.WriteLine("To much steps");
                     break;
@@ -203,7 +204,7 @@ namespace console_game
                     map1.spaceX = map1.spaceX + 1;
                     map1.setF();
                     open.Add(map1);
-                    //map1.print();
+                    //map1.print();                   
 
                 }
                 catch {
