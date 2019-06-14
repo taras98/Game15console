@@ -23,7 +23,7 @@ namespace console_game
         {
             size = Size;
             board = new int[size, size];
-            h = 10;
+            h = 2;
             parent = null;
         }
         public Map(int Size, Map Parent)
@@ -31,9 +31,23 @@ namespace console_game
             size = Size;
             board = new int[size, size];
             parent = Parent;
-            h = parent.h + 5;
+            h = parent.h + 1;
         }
 
+        public List<Map> getAllParent(List<Map> maps)
+        {
+            maps.Add(parent);
+            try
+            {
+                return parent.getAllParent(maps);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
+        }
         public int getF()
         {
             return f;
@@ -85,11 +99,30 @@ namespace console_game
             {
             }
         }
-        public void parentPrint(Map par)
+        public void parentPrint(Map map)
         {
-            par.parent.print();
-            par.parentPrint(par.parent);
+            map.parent.print();
+            map.parentPrint(map.parent);
         } 
+        public string direction()
+        {
+            int x = 0;
+            int y = 0; 
+            string str = "";
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (board[i,j]!=parent.board[i,j]&&board[i,j]>0)
+                    {
+                        x = board[i, j];
+                        y = i*size+ j;
+                    }
+                }
+            }
+            str = x + ", " + y;
+            return str;
+        }
 
         public void print()
         {
@@ -102,7 +135,9 @@ namespace console_game
                 Console.WriteLine();
             }
             Console.WriteLine("|G=" + getG() + "| H=" + getH() + "| F=" + getF() + "|");
+            Console.WriteLine("______________________________");
 
+            // Console.WriteLine(direction());
         }
 
     }

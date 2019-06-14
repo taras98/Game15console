@@ -9,8 +9,6 @@ namespace console_game
     class Game15
     {
         int size;
-        public int SpaceX { get; }
-        public int SpaceY { get; }
         static Random rand = new Random();
         Map map;
 
@@ -31,6 +29,15 @@ namespace console_game
                 }
                 Console.WriteLine();
             }
+        }
+        public int printInTxt(int i, int j)
+        {
+            return map.board[i, j];
+        }
+
+        public void getFromTxt(int i, int j, int x)
+        { 
+            map.board[i, j] = x;
         }
         //public void print_search(int[,] map_search)
         //{
@@ -151,13 +158,27 @@ namespace console_game
                 //добавити провірку на кінець
                 if (x.getG() == 0)
                 {
-                    x.lastPrint();
+                    List<Map> z = new List<Map>();
+                    x.getAllParent(z);
+                    z.Reverse();
+                    foreach (var item in z)
+                    {
+                        try
+                        {
+                            item.print();
+                        }
+                        catch 
+                        {
+                        }
+                        
+                    }
+                    //x.lastPrint();
                     break;
 
                 }
-                if (x.getF() > 100)
+                if (x.getF() > 155)
                 {
-                    Console.WriteLine("No answer");
+                    Console.WriteLine("To much steps");
                     break;
                 }
                 open.Remove(x);
