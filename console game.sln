@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console game", "console game.csproj", "{A5557974-23DF-4C39-B919-C41446D7E52F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{07E61D52-53E1-426F-8680-ED82D6F5EBB7}"
-	ProjectSection(SolutionItems) = preProject
-		E:\Downloads\ИМАП_2016.pdf = E:\Downloads\ИМАП_2016.pdf
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
