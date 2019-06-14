@@ -167,6 +167,7 @@ namespace console_game
                         {
                             item.print();
                             Console.WriteLine(item.direction());
+
                         }
                         catch 
                         {
